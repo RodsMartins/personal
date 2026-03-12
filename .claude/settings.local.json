@@ -10,7 +10,15 @@
       "Bash(git init:*)",
       "Bash(ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal -C \"rsmartinspersonal@gmail.com\" -N \"\")",
       "Bash(find /root/personal -name \"*tailwind*\" -o -name \"*postcss*\" 2>/dev/null | head -10)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(apt list:*)",
+      "Bash(apt-get update:*)",
+      "Bash(which chromium:*)",
+      "Bash(dpkg --configure -a 2>&1; apt-get install -y -f 2>&1 | tail -5)",
+      "Bash(git reset:*)",
+      "Bash(git stash:*)"
     ]
   }
 }
