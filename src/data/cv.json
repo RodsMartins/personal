@@ -1,12 +1,12 @@
 {
   "personal": {
     "name": "Rodrigo Martins",
-    "title": "Développeur Full Stack",
+    "title": "Développeur Full-Stack | Chef de projet IT",
     "tagline": "Ingénieur logiciel polyvalent, spécialisé dans la conception et le développement d'applications web et mobiles",
     "bio": "Informaticien diplômé avec plus de 6 ans d'expérience dans le développement d'applications web et mobiles. Passionné par les technologies modernes, je m'investis dans la création de solutions robustes et performantes, en alliant rigueur technique et approche orientée utilisateur.",
     "email": "rsmartinspersonal@gmail.com",
-    "phone": "+41 78 251 84 07",
-    "location": "Lausanne, Suisse",
+    "phone": "+41 76 440 84 20",
+    "location": "Prilly, Suisse",
     "social": {
       "github": "https://github.com/RodsMartins",
       "linkedin": "https://www.linkedin.com/in/RodrigoSilvaMartins"
@@ -15,7 +15,7 @@
   "about": {
     "intro": "Né au Portugal, j'ai grandi entre deux cultures avant de poser mes valises en Suisse à l'âge de 13 ans. Ce déracinement m'a appris à m'adapter vite, à écouter avant de parler, et à trouver ma place dans des environnements nouveaux — des qualités que je retrouve chaque jour dans mon métier de développeur.",
     "passion": "L'informatique, c'est un coup de foudre qui dure. Depuis mes premiers programmes au CFC, je n'ai jamais cessé de creuser, d'apprendre, de bricoler. Ce qui me motive, ce n'est pas seulement le code : c'est de comprendre un problème, de le décortiquer, et de construire quelque chose qui a du sens pour les gens qui l'utilisent.",
-    "now": "Aujourd'hui, après plus de 6 ans chez Tipee SA, j'ai eu la chance de toucher à tout : du mobile au backend, de l'Angular au .NET, du développement pur à la gestion de projet. Je suis toujours curieux, toujours en train d'explorer — que ce soit une nouvelle techno, une certification, ou un side project le dimanche matin.",
+    "now": "Aujourd'hui, après plus de 6 ans chez Tipee SA, j'ai eu la chance de toucher à tout : du backend au frontend, de Symfony à API Platform, du développement pur à la gestion de projet. Je suis toujours curieux, toujours en train d'explorer — que ce soit une nouvelle techno, une certification, ou un side project le dimanche matin.",
     "hobbies": [
       {
         "icon": "🏋️",
@@ -45,63 +45,64 @@
       "location": "Lausanne, Suisse",
       "roles": [
         {
-          "title": "Développeur Full Stack",
-          "project": "TipeeHR — Portail employés",
-          "startDate": "2024-01",
+          "title": "Full-Stack Developer",
+          "project": "Plateforme d'analyse d'indicateurs médicaux — INDIP",
+          "startDate": "2021-01",
           "endDate": null,
-          "description": "Développement et maintenance du portail employés TipeeHR, une application web permettant la gestion des ressources humaines.",
+          "description": "Développement d'un produit d'analyse de données médicales dans une petite équipe.",
           "highlights": [
-            "Conception et développement de nouvelles fonctionnalités RH (absences, plannings, documents)",
-            "Mise en place de tests automatisés et amélioration continue de la couverture de code",
-            "Collaboration étroite avec les équipes produit et UX pour l'évolution de la plateforme"
+            "Conception de l'architecture des services",
+            "Gestion de la containerisation (Docker)",
+            "Intégration de dashboards Grafana",
+            "Analyse technique des nouvelles fonctionnalités",
+            "Participation à la gestion du backlog en environnement Scrum"
           ],
-          "tech": ["Angular", "TypeScript", "C#", ".NET", "SQL Server", "Azure DevOps"]
+          "tech": ["Symfony", "API Platform", "Docker", "Twig", "Stimulus", "TypeScript"]
         },
         {
-          "title": "Développeur Full Stack",
-          "project": "TipeeTime — Gestion des temps",
-          "startDate": "2022-06",
-          "endDate": "2023-12",
-          "description": "Développement de l'application de gestion des temps et activités, utilisée par des milliers d'employés au quotidien.",
+          "title": "Full-Stack Developer",
+          "project": "Dossier de Suivi Individuel — DSI",
+          "startDate": "2020-01",
+          "endDate": null,
+          "description": "Refonte et maintenance du produit DSI.",
           "highlights": [
-            "Développement de modules de saisie et validation des heures de travail",
-            "Intégration avec les systèmes de badgeuses et les APIs tierces",
-            "Optimisation des performances pour le traitement de grands volumes de données"
+            "Refonte et maintenance du produit",
+            "Containerisation complète de la stack de développement",
+            "Création d'outils d'automatisation via Makefile",
+            "Mise en place du logging et monitoring avec Datadog"
           ],
-          "tech": ["Angular", "TypeScript", "C#", ".NET", "SQL Server", "REST API"]
+          "tech": ["Symfony", "Handlebars", "Twig", "JavaScript"]
         },
         {
-          "title": "Développeur Mobile",
-          "project": "TipeeMobile — Application mobile",
-          "startDate": "2021-06",
-          "endDate": "2022-05",
-          "description": "Conception et développement de l'application mobile multiplateforme pour la gestion des temps et absences.",
+          "title": "Backend Developer",
+          "project": "Portail RH / Gestion des heures — Tipee",
+          "startDate": "2020-01",
+          "endDate": "2021-12",
+          "description": "Développement dans l'API publique et refonte du backend du module de gestion des tâches.",
           "highlights": [
-            "Développement de l'application mobile cross-platform avec Xamarin/MAUI",
-            "Mise en place de notifications push et synchronisation hors-ligne",
-            "Publication et maintenance sur les stores iOS et Android"
+            "Développement dans l'API publique",
+            "Refonte du backend du module de gestion des tâches"
           ],
-          "tech": ["Xamarin", ".NET MAUI", "C#", "SQLite", "REST API", "Azure"]
+          "tech": ["DDD", "CQRS", "Symfony"]
         },
         {
-          "title": "Développeur Junior / Stagiaire",
-          "project": "Projets internes",
-          "startDate": "2019-08",
-          "endDate": "2021-05",
-          "description": "Début de carrière chez Tipee SA avec participation à divers projets internes et montée en compétences sur les technologies de l'entreprise.",
+          "title": "Stage — Backend Developer",
+          "project": "Produit Gestion des heures / Portail RH — Tipee",
+          "startDate": "2019-01",
+          "endDate": "2020-12",
+          "description": "Stage de développement backend sur le produit de gestion des heures et le portail RH.",
           "highlights": [
-            "Développement de fonctionnalités sur les applications existantes",
-            "Participation à la migration technologique vers Angular et .NET Core",
-            "Mise en place de processus de tests et documentation technique"
+            "Développement dans l'API publique",
+            "Refonte du backend du module de gestion des tâches"
           ],
-          "tech": ["AngularJS", "Angular", "C#", ".NET", "SQL Server", "Git"]
+          "tech": ["Symfony", "PHP"]
         }
       ]
     }
   ],
   "skills": {
-    "langages": ["TypeScript", "C#", "JavaScript", "HTML/CSS", "SQL", "Python"],
-    "frameworks": ["Angular", ".NET", "Xamarin", ".NET MAUI", "Node.js", "Astro"],
-    "devops": ["Azure DevOps", "Docker", "GitHub Actions", "CI/CD", "Git", "Linux"]
+    "langages": ["PHP", "TypeScript", "JavaScript", "C#", "MySQL | PostgreSQL", "Python"],
+    "frameworks": ["Symfony", "API Platform", "Stimulus", ".NET"],
+    "devops": ["Docker", "Jenkins", "Datadog", "Jira", "Batch scripting"]
   }
 }

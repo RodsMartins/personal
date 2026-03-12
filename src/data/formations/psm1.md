@@ -3,7 +3,7 @@ title: "Professional Scrum Master I (PSM I)"
 institution: "Scrum.org"
 type: "certification"
 date: "2022"
-description: "Certification validant la maîtrise du framework Scrum et des principes de gestion de projet agile."
+description: "Scrum Master certifié, avec expérience en pilotage Agile."
 tags: ["Scrum", "Agile", "Gestion de projet"]
 ---
 
