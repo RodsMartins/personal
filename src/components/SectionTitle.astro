@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  id?: string;
+}
+
+const { title, id } = Astro.props;
+---
+
+<div class="section-title" id={id}>
+  <h2 class="section-title__text">{title}</h2>
+  <div class="section-title__line" aria-hidden="true"></div>
+</div>
+
+<style>
+  .section-title {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-title__text {
+    display: inline-block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-title__line {
+    width: 3rem;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
+</style>

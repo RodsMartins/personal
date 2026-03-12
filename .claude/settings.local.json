@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.astro.build)",
+      "Bash(npm create:*)",
+      "Bash(cd /tmp && rm -rf astro-temp && echo \"y\" | npm create astro@latest astro-temp -- --template minimal --no-install --skip-houston --no-git 2>&1 || true)",
+      "Bash(cp -r /tmp/astro-temp/* /tmp/astro-temp/.* /home/rodrigo/personal/ 2>/dev/null; ls -la /home/rodrigo/personal/)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(git init:*)",
+      "Bash(ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal -C \"rsmartinspersonal@gmail.com\" -N \"\")"
+    ]
+  }
+}

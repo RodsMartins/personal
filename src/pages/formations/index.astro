@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import FormationCard from '../../components/FormationCard.astro';
+import i18n from '../../i18n/fr.json';
+import { getCollection } from 'astro:content';
+
+const formations = (await getCollection('formations')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout
+  title={`${i18n.sections.formations} — Rodrigo`}
+  description="Mon parcours de formation : diplômes, certifications et formations continues."
+>
+  <section class="section">
+    <div class="container">
+      <SectionTitle title={i18n.sections.formations} />
+      <div class="formations-grid">
+        {formations.map((formation) => (
+          <FormationCard
+            title={formation.data.title}
+            institution={formation.data.institution}
+            type={formation.data.type}
+            date={formation.data.date}
+            description={formation.data.description}
+            slug={formation.id}
+            tags={formation.data.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .formations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-lg);
+  }
+</style>

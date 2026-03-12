@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "formations": "Formations"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "tagline": "Développeur passionné par la création d'expériences web modernes"
+  },
+  "sections": {
+    "about": "À propos",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "formations": "Formations"
+  },
+  "labels": {
+    "present": "Présent",
+    "viewProject": "Voir le projet",
+    "viewCode": "Voir le code",
+    "viewMore": "En savoir plus",
+    "allProjects": "Tous les projets",
+    "allFormations": "Toutes les formations",
+    "backToList": "Retour à la liste"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "builtWith": "Construit avec"
+  },
+  "lang": {
+    "switchLabel": "EN",
+    "switchTitle": "English version — Bientôt disponible"
+  }
+}

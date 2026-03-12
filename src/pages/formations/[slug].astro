@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import i18n from '../../i18n/fr.json';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const formations = await getCollection('formations');
+  return formations.map((formation) => ({
+    params: { slug: formation.id },
+    props: { formation },
+  }));
+}
+
+const { formation } = Astro.props;
+const { Content } = await render(formation);
+
+const typeLabels: Record<string, string> = {
+  diplome: 'Diplôme',
+  certification: 'Certification',
+  formation: 'Formation',
+  mooc: 'MOOC',
+};
+---
+
+<BaseLayout
+  title={`${formation.data.title} — Rodrigo`}
+  description={formation.data.description}
+>
+  <section class="section">
+    <div class="container detail">
+      <a href="/formations/" class="detail__back">← {i18n.labels.backToList}</a>
+
+      <header class="detail__header animate-fade-up">
+        <div class="detail__badges">
+          <span class="detail__type">{typeLabels[formation.data.type] ?? formation.data.type}</span>
+          <span class="detail__date">{formation.data.date}</span>
+        </div>
+        <h1>{formation.data.title}</h1>
+        <p class="detail__institution">{formation.data.institution}</p>
+        {formation.data.tags.length > 0 && (
+          <div class="detail__tags">
+            {formation.data.tags.map((tag) => (
+              <span class="detail__tag">{tag}</span>
+            ))}
+          </div>
+        )}
+        {formation.data.link && (
+          <a href={formation.data.link} target="_blank" rel="noopener noreferrer" class="detail__link">
+            {i18n.labels.viewMore} ↗
+          </a>
+        )}
+      </header>
+
+      <article class="detail__content prose animate-fade-up delay-1">
+        <Content />
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .detail {
+    max-width: 48rem;
+  }
+
+  .detail__back {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    transition: color var(--transition);
+  }
+
+  .detail__back:hover {
+    color: var(--color-accent);
+  }
+
+  .detail__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .detail__badges {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .detail__type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    background-color: rgba(99, 102, 241, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+  }
+
+  .detail__date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+  }
+
+  .detail__institution {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .detail__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .detail__tag {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+  }
+
+  .detail__link {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+  }
+
+  .detail__link:hover {
+    border-color: var(--color-accent);
+  }
+
+  /* Prose styles for markdown content */
+  .prose :global(h2) {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .prose :global(h3) {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-md);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .prose :global(li) {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    list-style: disc;
+  }
+
+  .prose :global(strong) {
+    color: var(--color-text-primary);
+  }
+</style>

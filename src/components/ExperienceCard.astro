@@ -1,0 +1,129 @@
+---
+import i18n from '../i18n/fr.json';
+
+interface Props {
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string | null;
+  description: string;
+  highlights: string[];
+}
+
+const { title, company, location, startDate, endDate, description, highlights } = Astro.props;
+
+function formatDate(dateStr: string): string {
+  const [year, month] = dateStr.split('-');
+  const months = ['Janv.', 'Fév.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'];
+  return `${months[parseInt(month) - 1]} ${year}`;
+}
+---
+
+<article class="xp-card animate-fade-up">
+  <div class="xp-card__timeline" aria-hidden="true">
+    <div class="xp-card__dot"></div>
+    <div class="xp-card__line"></div>
+  </div>
+  <div class="xp-card__content">
+    <div class="xp-card__header">
+      <h3 class="xp-card__title">{title}</h3>
+      <p class="xp-card__meta">
+        {company} · {location}
+      </p>
+      <p class="xp-card__date">
+        {formatDate(startDate)} — {endDate ? formatDate(endDate) : i18n.labels.present}
+      </p>
+    </div>
+    <p class="xp-card__desc">{description}</p>
+    {highlights.length > 0 && (
+      <ul class="xp-card__highlights">
+        {highlights.map((h) => (
+          <li>{h}</li>
+        ))}
+      </ul>
+    )}
+  </div>
+</article>
+
+<style>
+  .xp-card {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .xp-card__timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .xp-card__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .xp-card__line {
+    width: 2px;
+    flex: 1;
+    background-color: var(--color-border);
+    margin-top: var(--space-sm);
+  }
+
+  .xp-card__content {
+    padding-bottom: var(--space-xl);
+  }
+
+  .xp-card__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .xp-card__meta {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .xp-card__date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .xp-card__desc {
+    margin-bottom: var(--space-md);
+  }
+
+  .xp-card__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .xp-card__highlights li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .xp-card__highlights li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .xp-card {
+      gap: var(--space-md);
+    }
+  }
+</style>

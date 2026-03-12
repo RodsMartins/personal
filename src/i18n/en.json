@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "formations": "Education"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "tagline": "Developer passionate about building modern web experiences"
+  },
+  "sections": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "formations": "Education"
+  },
+  "labels": {
+    "present": "Present",
+    "viewProject": "View project",
+    "viewCode": "View code",
+    "viewMore": "Learn more",
+    "allProjects": "All projects",
+    "allFormations": "All education",
+    "backToList": "Back to list"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with"
+  },
+  "lang": {
+    "switchLabel": "FR",
+    "switchTitle": "Version française"
+  }
+}

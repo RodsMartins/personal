@@ -1,0 +1,205 @@
+---
+import i18n from '../i18n/fr.json';
+
+const navLinks = [
+  { href: '/', label: i18n.nav.home },
+  { href: '/projets/', label: i18n.nav.projects },
+  { href: '/formations/', label: i18n.nav.formations },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <nav class="header__nav container" aria-label="Navigation principale">
+    <a href="/" class="header__logo" aria-label="Accueil">
+      <span class="header__logo-text">R<span class="header__logo-dot">.</span></span>
+    </a>
+
+    <button
+      class="header__menu-btn"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <span class="header__menu-icon"></span>
+    </button>
+
+    <ul id="nav-links" class="header__links" role="list">
+      {navLinks.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class:list={['header__link', { 'header__link--active': currentPath === href }]}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <span class="header__lang" title={i18n.lang.switchTitle}>
+          {i18n.lang.switchLabel}
+        </span>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background-color: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .header__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .header__logo:hover {
+    color: var(--color-text-primary);
+  }
+
+  .header__logo-dot {
+    color: var(--color-accent);
+  }
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .header__link {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color var(--transition);
+  }
+
+  .header__link:hover,
+  .header__link--active {
+    color: var(--color-text-primary);
+  }
+
+  .header__link--active {
+    position: relative;
+  }
+
+  .header__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    border-radius: 1px;
+  }
+
+  .header__lang {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .header__menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  .header__menu-icon,
+  .header__menu-icon::before,
+  .header__menu-icon::after {
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform var(--transition);
+  }
+
+  .header__menu-icon {
+    position: relative;
+  }
+
+  .header__menu-icon::before,
+  .header__menu-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .header__menu-icon::before {
+    top: -6px;
+  }
+
+  .header__menu-icon::after {
+    top: 6px;
+  }
+
+  @media (max-width: 768px) {
+    .header__menu-btn {
+      display: block;
+    }
+
+    .header__links {
+      display: none;
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background-color: var(--color-bg-primary);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md);
+    }
+
+    .header__links.is-open {
+      display: flex;
+    }
+
+    .header__link {
+      display: block;
+      padding: var(--space-sm) 0;
+    }
+
+    .header__lang {
+      margin-top: var(--space-sm);
+    }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector('.header__menu-btn');
+  const links = document.getElementById('nav-links');
+  if (btn && links) {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('is-open');
+    });
+  }
+</script>

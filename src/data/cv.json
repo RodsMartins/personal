@@ -1,0 +1,49 @@
+{
+  "personal": {
+    "name": "Rodrigo",
+    "title": "Développeur Full Stack",
+    "tagline": "Passionné par la création d'expériences web modernes et performantes",
+    "bio": "Développeur Full Stack avec une passion pour les technologies web modernes. J'aime concevoir des applications élégantes, performantes et accessibles. Toujours à la recherche de nouveaux défis techniques et d'opportunités d'apprentissage.",
+    "email": "rodrigo@example.com",
+    "location": "France",
+    "website": "https://rodrigo.github.io",
+    "social": {
+      "github": "https://github.com/rodrigo",
+      "linkedin": "https://linkedin.com/in/rodrigo"
+    }
+  },
+  "experience": [
+    {
+      "title": "Développeur Full Stack",
+      "company": "Entreprise Tech",
+      "location": "Paris, France",
+      "startDate": "2023-01",
+      "endDate": null,
+      "description": "Développement d'applications web avec des technologies modernes. Conception d'APIs RESTful, mise en place de pipelines CI/CD, et mentorat de développeurs juniors.",
+      "highlights": [
+        "Migration d'une application monolithique vers une architecture microservices",
+        "Réduction du temps de chargement de 40% grâce à l'optimisation du frontend",
+        "Mise en place de tests automatisés couvrant 85% du code"
+      ]
+    },
+    {
+      "title": "Développeur Frontend",
+      "company": "Startup Digitale",
+      "location": "Lyon, France",
+      "startDate": "2021-06",
+      "endDate": "2022-12",
+      "description": "Création d'interfaces utilisateur réactives et accessibles. Collaboration étroite avec les équipes design et produit.",
+      "highlights": [
+        "Développement d'un design system utilisé par 3 équipes produit",
+        "Implémentation d'un tableau de bord analytique en temps réel",
+        "Amélioration du score Lighthouse de 65 à 98"
+      ]
+    }
+  ],
+  "skills": {
+    "frontend": ["TypeScript", "React", "Vue.js", "Astro", "HTML/CSS", "Tailwind CSS"],
+    "backend": ["Node.js", "Python", "PostgreSQL", "REST API", "GraphQL"],
+    "devops": ["Docker", "GitHub Actions", "Linux", "CI/CD"],
+    "tools": ["Git", "VS Code", "Figma", "Jira"]
+  }
+}

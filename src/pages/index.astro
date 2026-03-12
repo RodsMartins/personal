@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import SkillBadge from '../components/SkillBadge.astro';
+import i18n from '../i18n/fr.json';
+import cv from '../data/cv.json';
+---
+
+<BaseLayout
+  title={`${cv.personal.name} — ${cv.personal.title}`}
+  description={cv.personal.tagline}
+>
+  <Hero />
+
+  <!-- About -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionTitle title={i18n.sections.about} id="about" />
+      <div class="about animate-fade-up">
+        <p class="about__text">{cv.personal.bio}</p>
+        <div class="about__details">
+          <p><strong>📍</strong> {cv.personal.location}</p>
+          <p><strong>✉️</strong> <a href={`mailto:${cv.personal.email}`}>{cv.personal.email}</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="container">
+      <SectionTitle title={i18n.sections.experience} />
+      <div class="experience-list">
+        {cv.experience.map((exp) => (
+          <ExperienceCard
+            title={exp.title}
+            company={exp.company}
+            location={exp.location}
+            startDate={exp.startDate}
+            endDate={exp.endDate}
+            description={exp.description}
+            highlights={exp.highlights}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionTitle title={i18n.sections.skills} id="skills" />
+      <div class="skills-grid animate-fade-up">
+        {Object.entries(cv.skills).map(([category, skills]) => (
+          <div class="skills-group">
+            <h3 class="skills-group__title">{category}</h3>
+            <div class="skills-group__badges">
+              {skills.map((skill) => (
+                <SkillBadge name={skill} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about__text {
+    font-size: 1.1rem;
+    max-width: 42rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .about__details {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .about__details p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  .experience-list {
+    max-width: 42rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .skills-group {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .skills-group__title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .skills-group__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+</style>
