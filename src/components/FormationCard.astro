@@ -27,7 +27,7 @@ const typeLabels: Record<string, string> = {
     <span class="formation-card__date">{date}</span>
   </div>
   <h3 class="formation-card__title">
-    <a href={`/formations/${slug}/`}>{title}</a>
+    <a href={`${import.meta.env.BASE_URL}formations/${slug}/`}>{title}</a>
   </h3>
   <p class="formation-card__institution">{institution}</p>
   <p class="formation-card__desc">{description}</p>
@@ -38,7 +38,7 @@ const typeLabels: Record<string, string> = {
       ))}
     </div>
   )}
-  <a href={`/formations/${slug}/`} class="formation-card__more">
+  <a href={`${import.meta.env.BASE_URL}formations/${slug}/`} class="formation-card__more">
     {i18n.labels.viewMore} →
   </a>
 </article>

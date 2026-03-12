@@ -16,7 +16,7 @@ const { title, description, tags, slug, repo, demo } = Astro.props;
 <article class="project-card animate-fade-up">
   <div class="project-card__content">
     <h3 class="project-card__title">
-      <a href={`/projets/${slug}/`}>{title}</a>
+      <a href={`${import.meta.env.BASE_URL}projets/${slug}/`}>{title}</a>
     </h3>
     <p class="project-card__desc">{description}</p>
     <div class="project-card__tags">
