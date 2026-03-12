@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import i18n from '../i18n/fr.json';
+import cv from '../data/cv.json';
+---
+
+<BaseLayout
+  title={`${i18n.sections.about} — ${cv.personal.name}`}
+  description="Développeur Full Stack basé à Lausanne. Parcours, passions et personnalité."
+>
+  <!-- Intro -->
+  <section class="section">
+    <div class="container about-intro">
+      <div class="about-intro__photo animate-fade-up">
+        <div class="about-intro__placeholder" aria-label="Photo de Rodrigo">
+          <span>📷</span>
+          <p>Photo à venir</p>
+        </div>
+      </div>
+      <div class="about-intro__text animate-fade-up">
+        <h1 class="about-intro__title">
+          Salut, moi c'est <span class="glow">Rodrigo</span>.
+        </h1>
+        <p class="about-intro__lead">{cv.about.intro}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcours -->
+  <section class="section section--alt">
+    <div class="container about-story">
+      <div class="about-story__block animate-fade-up">
+        <h2 class="about-story__heading">Le code, et moi</h2>
+        <p>{cv.about.passion}</p>
+      </div>
+      <div class="about-story__block animate-fade-up">
+        <h2 class="about-story__heading">Aujourd'hui</h2>
+        <p>{cv.about.now}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section class="section">
+    <div class="container">
+      <SectionTitle title={i18n.sections.hobbies} />
+      <div class="hobbies-grid">
+        {cv.about.hobbies.map((hobby) => (
+          <div class="hobby-card animate-fade-up">
+            <span class="hobby-card__icon">{hobby.icon}</span>
+            <h3 class="hobby-card__title">{hobby.title}</h3>
+            <p class="hobby-card__desc">{hobby.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Langues -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionTitle title={i18n.sections.languages} />
+      <div class="languages-row animate-fade-up">
+        {cv.about.languages.map((lang) => (
+          <div class="lang-card">
+            <span class="lang-card__flag">{lang.flag}</span>
+            <div>
+              <h3 class="lang-card__name">{lang.name}</h3>
+              <p class="lang-card__level">{lang.level}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <div class="container contact-section animate-fade-up">
+      <h2 class="contact-section__title">Envie d'échanger ?</h2>
+      <p class="contact-section__text">
+        Que ce soit pour un projet, une opportunité ou simplement discuter tech autour d'un café — n'hésitez pas.
+      </p>
+      <div class="contact-section__links">
+        <a href={`mailto:${cv.personal.email}`} class="contact-btn contact-btn--primary">
+          ✉️ {cv.personal.email}
+        </a>
+        <a href={cv.personal.social.linkedin} target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--secondary">
+          LinkedIn
+        </a>
+        <a href={cv.personal.social.github} target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--secondary">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Intro */
+  .about-intro {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .about-intro__placeholder {
+    width: 280px;
+    height: 340px;
+    background-color: var(--color-bg-card);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+  }
+
+  .about-intro__placeholder span {
+    font-size: 2rem;
+  }
+
+  .about-intro__title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin-bottom: var(--space-lg);
+  }
+
+  .about-intro__lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* Story */
+  .about-story {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    max-width: 52rem;
+  }
+
+  .about-story__heading {
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-story__block p {
+    line-height: 1.8;
+  }
+
+  /* Hobbies */
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .hobby-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: all var(--transition);
+  }
+
+  .hobby-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .hobby-card__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .hobby-card__title {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hobby-card__desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Languages */
+  .languages-row {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .lang-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    min-width: 200px;
+  }
+
+  .lang-card__flag {
+    font-size: 1.75rem;
+  }
+
+  .lang-card__name {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .lang-card__level {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+  }
+
+  /* Contact */
+  .contact-section {
+    text-align: center;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .contact-section__title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-section__text {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-section__links {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition);
+  }
+
+  .contact-btn--primary {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .contact-btn--primary:hover {
+    background-color: var(--color-accent-hover);
+    color: #fff;
+  }
+
+  .contact-btn--secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+  }
+
+  .contact-btn--secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .about-intro {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .about-intro__placeholder {
+      width: 200px;
+      height: 240px;
+    }
+  }
+</style>

@@ -1,49 +1,107 @@
 {
   "personal": {
-    "name": "Rodrigo",
+    "name": "Rodrigo Martins",
     "title": "Développeur Full Stack",
-    "tagline": "Passionné par la création d'expériences web modernes et performantes",
-    "bio": "Développeur Full Stack avec une passion pour les technologies web modernes. J'aime concevoir des applications élégantes, performantes et accessibles. Toujours à la recherche de nouveaux défis techniques et d'opportunités d'apprentissage.",
-    "email": "rodrigo@example.com",
-    "location": "France",
-    "website": "https://rodrigo.github.io",
+    "tagline": "Ingénieur logiciel polyvalent, spécialisé dans la conception et le développement d'applications web et mobiles",
+    "bio": "Informaticien diplômé avec plus de 6 ans d'expérience dans le développement d'applications web et mobiles. Passionné par les technologies modernes, je m'investis dans la création de solutions robustes et performantes, en alliant rigueur technique et approche orientée utilisateur.",
+    "email": "rsmartinspersonal@gmail.com",
+    "phone": "+41 78 251 84 07",
+    "location": "Lausanne, Suisse",
     "social": {
-      "github": "https://github.com/rodrigo",
-      "linkedin": "https://linkedin.com/in/rodrigo"
+      "github": "https://github.com/RodsMartins",
+      "linkedin": "https://www.linkedin.com/in/RodrigoSilvaMartins"
     }
+  },
+  "about": {
+    "intro": "Né au Portugal, j'ai grandi entre deux cultures avant de poser mes valises en Suisse à l'âge de 13 ans. Ce déracinement m'a appris à m'adapter vite, à écouter avant de parler, et à trouver ma place dans des environnements nouveaux — des qualités que je retrouve chaque jour dans mon métier de développeur.",
+    "passion": "L'informatique, c'est un coup de foudre qui dure. Depuis mes premiers programmes au CFC, je n'ai jamais cessé de creuser, d'apprendre, de bricoler. Ce qui me motive, ce n'est pas seulement le code : c'est de comprendre un problème, de le décortiquer, et de construire quelque chose qui a du sens pour les gens qui l'utilisent.",
+    "now": "Aujourd'hui, après plus de 6 ans chez Tipee SA, j'ai eu la chance de toucher à tout : du mobile au backend, de l'Angular au .NET, du développement pur à la gestion de projet. Je suis toujours curieux, toujours en train d'explorer — que ce soit une nouvelle techno, une certification, ou un side project le dimanche matin.",
+    "hobbies": [
+      {
+        "icon": "🏋️",
+        "title": "Sport",
+        "description": "Musculation, course à pied, vélo — et quelques Spartan Races pour pimenter le tout. Le dépassement de soi, c'est aussi une forme de debug."
+      },
+      {
+        "icon": "🎵",
+        "title": "Musique",
+        "description": "Jazz, blues, pop — toujours un fond sonore quand je code. La musique, c'est le rythme qui manque au silence."
+      },
+      {
+        "icon": "🎱",
+        "title": "Jeux de bar",
+        "description": "Baby-foot, billard — parce que les meilleures idées naissent souvent autour d'une table, pas derrière un écran."
+      }
+    ],
+    "languages": [
+      { "name": "Portugais", "level": "Langue maternelle", "flag": "🇵🇹" },
+      { "name": "Français", "level": "Courant (C2)", "flag": "🇫🇷" },
+      { "name": "Anglais", "level": "Courant (C2)", "flag": "🇬🇧" }
+    ]
   },
   "experience": [
     {
-      "title": "Développeur Full Stack",
-      "company": "Entreprise Tech",
-      "location": "Paris, France",
-      "startDate": "2023-01",
-      "endDate": null,
-      "description": "Développement d'applications web avec des technologies modernes. Conception d'APIs RESTful, mise en place de pipelines CI/CD, et mentorat de développeurs juniors.",
-      "highlights": [
-        "Migration d'une application monolithique vers une architecture microservices",
-        "Réduction du temps de chargement de 40% grâce à l'optimisation du frontend",
-        "Mise en place de tests automatisés couvrant 85% du code"
-      ]
-    },
-    {
-      "title": "Développeur Frontend",
-      "company": "Startup Digitale",
-      "location": "Lyon, France",
-      "startDate": "2021-06",
-      "endDate": "2022-12",
-      "description": "Création d'interfaces utilisateur réactives et accessibles. Collaboration étroite avec les équipes design et produit.",
-      "highlights": [
-        "Développement d'un design system utilisé par 3 équipes produit",
-        "Implémentation d'un tableau de bord analytique en temps réel",
-        "Amélioration du score Lighthouse de 65 à 98"
+      "company": "Tipee SA",
+      "location": "Lausanne, Suisse",
+      "roles": [
+        {
+          "title": "Développeur Full Stack",
+          "project": "TipeeHR — Portail employés",
+          "startDate": "2024-01",
+          "endDate": null,
+          "description": "Développement et maintenance du portail employés TipeeHR, une application web permettant la gestion des ressources humaines.",
+          "highlights": [
+            "Conception et développement de nouvelles fonctionnalités RH (absences, plannings, documents)",
+            "Mise en place de tests automatisés et amélioration continue de la couverture de code",
+            "Collaboration étroite avec les équipes produit et UX pour l'évolution de la plateforme"
+          ],
+          "tech": ["Angular", "TypeScript", "C#", ".NET", "SQL Server", "Azure DevOps"]
+        },
+        {
+          "title": "Développeur Full Stack",
+          "project": "TipeeTime — Gestion des temps",
+          "startDate": "2022-06",
+          "endDate": "2023-12",
+          "description": "Développement de l'application de gestion des temps et activités, utilisée par des milliers d'employés au quotidien.",
+          "highlights": [
+            "Développement de modules de saisie et validation des heures de travail",
+            "Intégration avec les systèmes de badgeuses et les APIs tierces",
+            "Optimisation des performances pour le traitement de grands volumes de données"
+          ],
+          "tech": ["Angular", "TypeScript", "C#", ".NET", "SQL Server", "REST API"]
+        },
+        {
+          "title": "Développeur Mobile",
+          "project": "TipeeMobile — Application mobile",
+          "startDate": "2021-06",
+          "endDate": "2022-05",
+          "description": "Conception et développement de l'application mobile multiplateforme pour la gestion des temps et absences.",
+          "highlights": [
+            "Développement de l'application mobile cross-platform avec Xamarin/MAUI",
+            "Mise en place de notifications push et synchronisation hors-ligne",
+            "Publication et maintenance sur les stores iOS et Android"
+          ],
+          "tech": ["Xamarin", ".NET MAUI", "C#", "SQLite", "REST API", "Azure"]
+        },
+        {
+          "title": "Développeur Junior / Stagiaire",
+          "project": "Projets internes",
+          "startDate": "2019-08",
+          "endDate": "2021-05",
+          "description": "Début de carrière chez Tipee SA avec participation à divers projets internes et montée en compétences sur les technologies de l'entreprise.",
+          "highlights": [
+            "Développement de fonctionnalités sur les applications existantes",
+            "Participation à la migration technologique vers Angular et .NET Core",
+            "Mise en place de processus de tests et documentation technique"
+          ],
+          "tech": ["AngularJS", "Angular", "C#", ".NET", "SQL Server", "Git"]
+        }
       ]
     }
   ],
   "skills": {
-    "frontend": ["TypeScript", "React", "Vue.js", "Astro", "HTML/CSS", "Tailwind CSS"],
-    "backend": ["Node.js", "Python", "PostgreSQL", "REST API", "GraphQL"],
-    "devops": ["Docker", "GitHub Actions", "Linux", "CI/CD"],
-    "tools": ["Git", "VS Code", "Figma", "Jira"]
+    "langages": ["TypeScript", "C#", "JavaScript", "HTML/CSS", "SQL", "Python"],
+    "frameworks": ["Angular", ".NET", "Xamarin", ".NET MAUI", "Node.js", "Astro"],
+    "devops": ["Azure DevOps", "Docker", "GitHub Actions", "CI/CD", "Git", "Linux"]
   }
 }

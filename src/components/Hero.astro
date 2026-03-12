@@ -13,8 +13,8 @@ import cv from '../data/cv.json';
       <a href="#experience" class="hero__btn hero__btn--primary">
         {i18n.sections.experience}
       </a>
-      <a href={`${import.meta.env.BASE_URL}projets/`} class="hero__btn hero__btn--secondary">
-        {i18n.sections.projects}
+      <a href={`mailto:${cv.personal.email}`} class="hero__btn hero__btn--secondary">
+        {i18n.labels.contact}
       </a>
     </div>
   </div>

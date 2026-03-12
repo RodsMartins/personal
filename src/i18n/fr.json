@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "Accueil",
-    "projects": "Projets",
-    "formations": "Formations"
+    "experience": "Expérience",
+    "formations": "Formations",
+    "skills": "Compétences",
+    "about": "À propos"
   },
   "hero": {
     "greeting": "Bonjour, je suis",
@@ -13,7 +15,9 @@
     "experience": "Expérience",
     "skills": "Compétences",
     "projects": "Projets",
-    "formations": "Formations"
+    "formations": "Diplômes & Certifications",
+    "hobbies": "Centres d'intérêt",
+    "languages": "Langues"
   },
   "labels": {
     "present": "Présent",
@@ -22,7 +26,8 @@
     "viewMore": "En savoir plus",
     "allProjects": "Tous les projets",
     "allFormations": "Toutes les formations",
-    "backToList": "Retour à la liste"
+    "backToList": "Retour à la liste",
+    "contact": "Me contacter"
   },
   "footer": {
     "rights": "Tous droits réservés.",

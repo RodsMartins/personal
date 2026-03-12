@@ -4,9 +4,10 @@ import i18n from '../i18n/fr.json';
 const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: base, label: i18n.nav.home },
-  { href: `${base}projets/`, label: i18n.nav.projects },
+  { href: `${base}#experience`, label: i18n.nav.experience },
+  { href: `${base}#skills`, label: i18n.nav.skills },
   { href: `${base}formations/`, label: i18n.nav.formations },
+  { href: `${base}a-propos/`, label: i18n.nav.about },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -32,7 +33,7 @@ const currentPath = Astro.url.pathname;
         <li>
           <a
             href={href}
-            class:list={['header__link', { 'header__link--active': currentPath === href }]}
+            class:list={['header__link', { 'header__link--active': !href.includes('#') && currentPath === href }]}
           >
             {label}
           </a>
@@ -202,6 +203,14 @@ const currentPath = Astro.url.pathname;
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
       links.classList.toggle('is-open');
+    });
+
+    // Close mobile menu on any link click
+    links.querySelectorAll('a').forEach((anchor) => {
+      anchor.addEventListener('click', () => {
+        btn.setAttribute('aria-expanded', 'false');
+        links.classList.remove('is-open');
+      });
     });
   }
 </script>

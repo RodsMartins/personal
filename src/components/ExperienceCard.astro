@@ -1,17 +1,23 @@
 ---
 import i18n from '../i18n/fr.json';
 
-interface Props {
+interface Role {
   title: string;
-  company: string;
-  location: string;
+  project: string;
   startDate: string;
   endDate: string | null;
   description: string;
   highlights: string[];
+  tech: string[];
 }
 
-const { title, company, location, startDate, endDate, description, highlights } = Astro.props;
+interface Props {
+  company: string;
+  location: string;
+  roles: Role[];
+}
+
+const { company, location, roles } = Astro.props;
 
 function formatDate(dateStr: string): string {
   const [year, month] = dateStr.split('-');
@@ -20,46 +26,85 @@ function formatDate(dateStr: string): string {
 }
 ---
 
-<article class="xp-card animate-fade-up">
-  <div class="xp-card__timeline" aria-hidden="true">
-    <div class="xp-card__dot"></div>
-    <div class="xp-card__line"></div>
+<article class="xp-company animate-fade-up">
+  <div class="xp-company__header">
+    <h3 class="xp-company__name">{company}</h3>
+    <p class="xp-company__location">{location}</p>
   </div>
-  <div class="xp-card__content">
-    <div class="xp-card__header">
-      <h3 class="xp-card__title">{title}</h3>
-      <p class="xp-card__meta">
-        {company} · {location}
-      </p>
-      <p class="xp-card__date">
-        {formatDate(startDate)} — {endDate ? formatDate(endDate) : i18n.labels.present}
-      </p>
-    </div>
-    <p class="xp-card__desc">{description}</p>
-    {highlights.length > 0 && (
-      <ul class="xp-card__highlights">
-        {highlights.map((h) => (
-          <li>{h}</li>
-        ))}
-      </ul>
-    )}
+
+  <div class="xp-company__roles">
+    {roles.map((role, index) => (
+      <div class="xp-role">
+        <div class="xp-role__timeline" aria-hidden="true">
+          <div class="xp-role__dot"></div>
+          {index < roles.length - 1 && <div class="xp-role__line"></div>}
+        </div>
+        <div class="xp-role__content">
+          <div class="xp-role__header">
+            <h4 class="xp-role__title">{role.title}</h4>
+            <p class="xp-role__project">{role.project}</p>
+            <p class="xp-role__date">
+              {formatDate(role.startDate)} — {role.endDate ? formatDate(role.endDate) : i18n.labels.present}
+            </p>
+          </div>
+          <p class="xp-role__desc">{role.description}</p>
+          {role.highlights.length > 0 && (
+            <ul class="xp-role__highlights">
+              {role.highlights.map((h) => (
+                <li>{h}</li>
+              ))}
+            </ul>
+          )}
+          {role.tech.length > 0 && (
+            <div class="xp-role__tech">
+              {role.tech.map((t) => (
+                <span class="xp-role__tech-badge">{t}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
   </div>
 </article>
 
 <style>
-  .xp-card {
+  .xp-company {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .xp-company__header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .xp-company__name {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .xp-company__location {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+  }
+
+  .xp-role {
     display: flex;
     gap: var(--space-lg);
   }
 
-  .xp-card__timeline {
+  .xp-role__timeline {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
   }
 
-  .xp-card__dot {
+  .xp-role__dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -68,62 +113,87 @@ function formatDate(dateStr: string): string {
     margin-top: 6px;
   }
 
-  .xp-card__line {
+  .xp-role__line {
     width: 2px;
     flex: 1;
     background-color: var(--color-border);
     margin-top: var(--space-sm);
   }
 
-  .xp-card__content {
+  .xp-role__content {
     padding-bottom: var(--space-xl);
   }
 
-  .xp-card__title {
-    font-size: 1.25rem;
+  .xp-role:last-child .xp-role__content {
+    padding-bottom: 0;
+  }
+
+  .xp-role__title {
+    font-size: 1.15rem;
     margin-bottom: var(--space-xs);
   }
 
-  .xp-card__meta {
+  .xp-role__project {
     font-size: 0.9rem;
-    color: var(--color-accent);
+    color: var(--color-text-secondary);
+    font-style: italic;
     margin-bottom: var(--space-xs);
   }
 
-  .xp-card__date {
+  .xp-role__date {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--color-text-secondary);
     margin-bottom: var(--space-md);
   }
 
-  .xp-card__desc {
+  .xp-role__desc {
     margin-bottom: var(--space-md);
   }
 
-  .xp-card__highlights {
+  .xp-role__highlights {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 
-  .xp-card__highlights li {
+  .xp-role__highlights li {
     position: relative;
     padding-left: 1.25rem;
     color: var(--color-text-secondary);
     font-size: 0.9rem;
   }
 
-  .xp-card__highlights li::before {
+  .xp-role__highlights li::before {
     content: '▹';
     position: absolute;
     left: 0;
     color: var(--color-accent);
   }
 
+  .xp-role__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .xp-role__tech-badge {
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    background-color: rgba(99, 102, 241, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+  }
+
   @media (max-width: 768px) {
-    .xp-card {
+    .xp-role {
       gap: var(--space-md);
+    }
+
+    .xp-company {
+      padding: var(--space-md);
     }
   }
 </style>

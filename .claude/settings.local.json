@@ -8,7 +8,9 @@
       "Bash(npm install:*)",
       "Bash(npm run:*)",
       "Bash(git init:*)",
-      "Bash(ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal -C \"rsmartinspersonal@gmail.com\" -N \"\")"
+      "Bash(ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal -C \"rsmartinspersonal@gmail.com\" -N \"\")",
+      "Bash(find /root/personal -name \"*tailwind*\" -o -name \"*postcss*\" 2>/dev/null | head -10)",
+      "Bash(git commit:*)"
     ]
   }
 }
