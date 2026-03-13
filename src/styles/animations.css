@@ -18,11 +18,40 @@
 
 /* ===== Glow effect ===== */
 .glow {
-  text-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+  color: var(--color-accent-hover);
+  text-shadow: 0 0 40px rgba(74, 108, 247, 0.3);
 }
 
 .glow-box {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 30px rgba(74, 108, 247, 0.15);
+}
+
+/* ===== Hero CSS-only animation ===== */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: hero-enter 0.7s ease both;
+}
+
+.hero-animate-1 { animation-delay: 0ms; }
+.hero-animate-2 { animation-delay: 120ms; }
+.hero-animate-3 { animation-delay: 240ms; }
+.hero-animate-4 { animation-delay: 360ms; }
+.hero-animate-5 { animation-delay: 480ms; }
+
+/* ===== Scroll indicator ===== */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* ===== Respect reduced motion ===== */
@@ -33,11 +62,26 @@
     transition: none;
   }
 
+  .hero-animate {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
   .glow {
     text-shadow: none;
   }
 
   .glow-box {
     box-shadow: none;
+  }
+
+  .hero__node {
+    animation: none !important;
+  }
+
+  .hero__name-dot {
+    animation: none !important;
+    opacity: 1;
   }
 }

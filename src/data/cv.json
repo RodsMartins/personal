@@ -13,9 +13,10 @@
     }
   },
   "about": {
-    "intro": "Né au Portugal, j'ai grandi entre deux cultures avant de poser mes valises en Suisse à l'âge de 13 ans. Ce déracinement m'a appris à m'adapter vite, à écouter avant de parler, et à trouver ma place dans des environnements nouveaux — des qualités que je retrouve chaque jour dans mon métier de développeur.",
+    "intro": "Né au Portugal, j'ai posé mes valises en Suisse à l'âge de 13 ans — et c'est ce déracinement qui m'a fait grandir entre deux cultures. S'adapter vite, écouter avant de parler, trouver sa place dans des environnements nouveaux — des qualités que je retrouve chaque jour dans mon métier de développeur.",
     "passion": "L'informatique, c'est un coup de foudre qui dure. Depuis mes premiers programmes au CFC, je n'ai jamais cessé de creuser, d'apprendre, de bricoler. Ce qui me motive, ce n'est pas seulement le code : c'est de comprendre un problème, de le décortiquer, et de construire quelque chose qui a du sens pour les gens qui l'utilisent.",
     "now": "Aujourd'hui, après plus de 6 ans chez Tipee SA, j'ai eu la chance de toucher à tout : du backend au frontend, de Symfony à API Platform, du développement pur à la gestion de projet. Je suis toujours curieux, toujours en train d'explorer — que ce soit une nouvelle techno, une certification, ou un side project le dimanche matin.",
+    "ambition": "Mon prochain défi : un Master MSE en Data Science. Après des années à concevoir des plateformes d'analyse de données médicales et des dashboards Grafana, j'ai développé une vraie passion pour la transformation de données brutes en information visuelle et actionnable. Ce master me permettra de formaliser cette expertise et d'évoluer vers l'intersection du développement et de la science des données.",
     "hobbies": [
       {
         "icon": "🏋️",
@@ -101,8 +102,16 @@
     }
   ],
   "skills": {
-    "langages": ["PHP", "TypeScript", "JavaScript", "C#", "MySQL | PostgreSQL", "Python"],
-    "frameworks": ["Symfony", "API Platform", "Stimulus", ".NET"],
-    "devops": ["Docker", "Jenkins", "Datadog", "Jira", "Batch scripting"]
+    "expert": {
+      "langages": ["PHP", "TypeScript"],
+      "frameworks": ["Symfony", "API Platform"],
+      "outils": ["Docker", "Twig", "Stimulus"]
+    },
+    "competent": {
+      "langages": ["JavaScript", "C#", "Python"],
+      "frameworks": [".NET", "Handlebars"],
+      "bases de données": ["MySQL", "PostgreSQL"],
+      "devops & outils": ["Jenkins", "Datadog", "Jira", "Makefile", "Batch scripting"]
+    }
   }
 }

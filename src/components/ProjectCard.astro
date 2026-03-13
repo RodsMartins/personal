@@ -49,8 +49,9 @@ const { title, description, tags, slug, repo, demo } = Astro.props;
   }
 
   .project-card:hover {
-    border-color: rgba(99, 102, 241, 0.3);
+    border-color: rgba(74, 108, 247, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   }
 
   .project-card__title {
@@ -81,8 +82,8 @@ const { title, description, tags, slug, repo, demo } = Astro.props;
   .project-card__tag {
     font-size: 0.75rem;
     font-family: var(--font-mono);
-    color: var(--color-accent);
-    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent-on-card);
+    background-color: rgba(74, 108, 247, 0.1);
     padding: 0.25rem 0.625rem;
     border-radius: 9999px;
   }

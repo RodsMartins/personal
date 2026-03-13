@@ -28,15 +28,18 @@ function formatDate(dateStr: string): string {
 
 <article class="xp-company animate-fade-up">
   <div class="xp-company__header">
-    <h3 class="xp-company__name">{company}</h3>
-    <p class="xp-company__location">{location}</p>
+    <div>
+      <h3 class="xp-company__name">{company}</h3>
+      <p class="xp-company__location">{location}</p>
+    </div>
+    <p class="xp-company__narrative">6+ ans d'évolution — du stage au Full-Stack & Chef de projet</p>
   </div>
 
   <div class="xp-company__roles">
     {roles.map((role, index) => (
       <div class="xp-role">
         <div class="xp-role__timeline" aria-hidden="true">
-          <div class="xp-role__dot"></div>
+          <div class:list={['xp-role__dot', { 'xp-role__dot--current': index === 0 }]}></div>
           {index < roles.length - 1 && <div class="xp-role__line"></div>}
         </div>
         <div class="xp-role__content">
@@ -44,7 +47,7 @@ function formatDate(dateStr: string): string {
             <h4 class="xp-role__title">{role.title}</h4>
             <p class="xp-role__project">{role.project}</p>
             <p class="xp-role__date">
-              {formatDate(role.startDate)} — {role.endDate ? formatDate(role.endDate) : i18n.labels.present}
+              {formatDate(role.startDate)} — {role.endDate ? formatDate(role.endDate) : <span class="xp-role__present">{i18n.labels.present}</span>}
             </p>
           </div>
           <p class="xp-role__desc">{role.description}</p>
@@ -80,6 +83,11 @@ function formatDate(dateStr: string): string {
     margin-bottom: var(--space-lg);
     padding-bottom: var(--space-md);
     border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-md);
   }
 
   .xp-company__name {
@@ -89,7 +97,15 @@ function formatDate(dateStr: string): string {
 
   .xp-company__location {
     font-size: 0.9rem;
-    color: var(--color-accent);
+    color: var(--color-accent-on-card);
+  }
+
+  .xp-company__narrative {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: #71717a;
+    max-width: 22rem;
+    text-align: right;
   }
 
   .xp-role {
@@ -111,13 +127,19 @@ function formatDate(dateStr: string): string {
     background-color: var(--color-accent);
     flex-shrink: 0;
     margin-top: 6px;
+    opacity: 0.5;
+  }
+
+  .xp-role__dot--current {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--color-accent-glow);
   }
 
   .xp-role__line {
     width: 2px;
     flex: 1;
-    background-color: var(--color-border);
     margin-top: var(--space-sm);
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
   }
 
   .xp-role__content {
@@ -145,6 +167,11 @@ function formatDate(dateStr: string): string {
     font-size: 0.8rem;
     color: var(--color-text-secondary);
     margin-bottom: var(--space-md);
+  }
+
+  .xp-role__present {
+    color: var(--color-success);
+    font-weight: 600;
   }
 
   .xp-role__desc {
@@ -181,8 +208,8 @@ function formatDate(dateStr: string): string {
   .xp-role__tech-badge {
     font-size: 0.7rem;
     font-family: var(--font-mono);
-    color: var(--color-accent);
-    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent-on-card);
+    background-color: rgba(74, 108, 247, 0.1);
     padding: 0.2rem 0.5rem;
     border-radius: 9999px;
   }
@@ -194,6 +221,14 @@ function formatDate(dateStr: string): string {
 
     .xp-company {
       padding: var(--space-md);
+    }
+
+    .xp-company__header {
+      flex-direction: column;
+    }
+
+    .xp-company__narrative {
+      text-align: left;
     }
   }
 </style>

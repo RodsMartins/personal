@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionTitle from '../components/SectionTitle.astro';
+import ContactSection from '../components/ContactSection.astro';
 import i18n from '../i18n/fr.json';
 import cv from '../data/cv.json';
 ---
@@ -9,281 +9,499 @@ import cv from '../data/cv.json';
   title={`${i18n.sections.about} — ${cv.personal.name}`}
   description="Développeur Full Stack basé à Lausanne. Parcours, passions et personnalité."
 >
-  <!-- Intro -->
-  <section class="section">
-    <div class="container about-intro">
-      <div class="about-intro__photo animate-fade-up">
-        <div class="about-intro__placeholder" aria-label="Photo de Rodrigo">
-          <span>📷</span>
-          <p>Photo à venir</p>
+  <!-- Hero intro — photo + typographic -->
+  <section class="section about-hero">
+    <div class="container about-hero__inner">
+      <div class="about-hero__photo animate-fade-up">
+        <div class="about-hero__placeholder" role="img" aria-label="Photo de Rodrigo">
+          <span>R.</span>
         </div>
       </div>
-      <div class="about-intro__text animate-fade-up">
-        <h1 class="about-intro__title">
-          Salut, moi c'est <span class="glow">Rodrigo</span>.
+      <div class="about-hero__text">
+        <h1 class="about-hero__title animate-fade-up">
+          Salut, moi c'est <span class="glow">Rodrigo</span><span class="about-hero__dot">.</span>
         </h1>
-        <p class="about-intro__lead">{cv.about.intro}</p>
+        <div class="about-hero__meta animate-fade-up delay-1">
+          <span class="about-hero__tag"><span class="about-hero__tag-icon" aria-hidden="true">&#9679;</span> Prilly, Suisse</span>
+          <span class="about-hero__tag"><span class="about-hero__tag-icon" aria-hidden="true">&#9679;</span> Full-Stack & Chef de projet</span>
+          <span class="about-hero__tag"><span class="about-hero__tag-icon" aria-hidden="true">&#9679;</span> 6+ ans d'expérience</span>
+        </div>
+        <p class="about-hero__lead animate-fade-up delay-2">{cv.about.intro}</p>
       </div>
     </div>
   </section>
 
-  <!-- Parcours -->
+  <!-- Journey — vertical narrative timeline -->
   <section class="section section--alt">
-    <div class="container about-story">
-      <div class="about-story__block animate-fade-up">
-        <h2 class="about-story__heading">Le code, et moi</h2>
-        <p>{cv.about.passion}</p>
-      </div>
-      <div class="about-story__block animate-fade-up">
-        <h2 class="about-story__heading">Aujourd'hui</h2>
-        <p>{cv.about.now}</p>
+    <div class="container about-journey">
+      <h2 class="about-journey__heading animate-fade-up">Mon parcours</h2>
+
+      <div class="journey-timeline">
+        <div class="journey-step animate-fade-up">
+          <div class="journey-step__marker" aria-hidden="true">
+            <span class="journey-step__dot"></span>
+            <span class="journey-step__line"></span>
+          </div>
+          <div class="journey-step__content">
+            <span class="journey-step__label">Les racines</span>
+            <h3 class="journey-step__title">Portugal → Suisse</h3>
+            <p>{cv.about.intro}</p>
+          </div>
+        </div>
+
+        <div class="journey-step animate-fade-up">
+          <div class="journey-step__marker" aria-hidden="true">
+            <span class="journey-step__dot"></span>
+            <span class="journey-step__line"></span>
+          </div>
+          <div class="journey-step__content">
+            <span class="journey-step__label">Le déclic</span>
+            <h3 class="journey-step__title">Le code, et moi</h3>
+            <p>{cv.about.passion}</p>
+            <p class="journey-step__aside">
+              Fun fact : mon tout premier projet, avant même d'être développeur, c'était de construire une IA pour battre Stockfish aux échecs. Spoiler : échec et mat — pour moi. Mais l'envie de comprendre comment ça marche ne m'a jamais quitté.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-step animate-fade-up">
+          <div class="journey-step__marker" aria-hidden="true">
+            <span class="journey-step__dot"></span>
+            <span class="journey-step__line"></span>
+          </div>
+          <div class="journey-step__content">
+            <span class="journey-step__label">Les certifications</span>
+            <h3 class="journey-step__title">Brevet fédéral & PSM I</h3>
+            <p>Le Brevet fédéral d'informaticien a formalisé des années de pratique en une reconnaissance reconnue sur le marché suisse. J'ai aussi obtenu la certification Professional Scrum Master I — pas indispensable, mais utile au quotidien dans une équipe Scrum.</p>
+          </div>
+        </div>
+
+        <div class="journey-step animate-fade-up">
+          <div class="journey-step__marker" aria-hidden="true">
+            <span class="journey-step__dot journey-step__dot--active"></span>
+          </div>
+          <div class="journey-step__content">
+            <span class="journey-step__label">Aujourd'hui</span>
+            <h3 class="journey-step__title">6+ ans chez Tipee SA</h3>
+            <p>Tipee, c'est à la fois l'entreprise et son produit phare — un portail RH et de gestion des heures. J'y ai fait mes armes, du stage au développeur full-stack. Aujourd'hui je travaille principalement sur DSI (Dossier de Suivi Individuel) et INDIP, une plateforme d'analyse d'indicateurs médicaux — de la data, des dashboards, des vrais utilisateurs sur le terrain.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Hobbies -->
+  <!-- Ambition — standout callout -->
   <section class="section">
     <div class="container">
-      <SectionTitle title={i18n.sections.hobbies} />
-      <div class="hobbies-grid">
-        {cv.about.hobbies.map((hobby) => (
-          <div class="hobby-card animate-fade-up">
-            <span class="hobby-card__icon">{hobby.icon}</span>
-            <h3 class="hobby-card__title">{hobby.title}</h3>
-            <p class="hobby-card__desc">{hobby.description}</p>
-          </div>
-        ))}
+      <div class="ambition-card animate-fade-up">
+        <div class="ambition-card__decoration" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="ambition-card__svg">
+            <circle cx="20" cy="20" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="50" cy="20" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="80" cy="20" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="110" cy="20" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="20" cy="50" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="50" cy="50" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="80" cy="50" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="110" cy="50" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="20" cy="80" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="50" cy="80" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="80" cy="80" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="110" cy="80" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="20" cy="110" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="50" cy="110" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="80" cy="110" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <circle cx="110" cy="110" r="2.5" fill="var(--color-accent)" opacity="0.15"/>
+            <line x1="50" y1="50" x2="110" y2="80" stroke="var(--color-accent)" stroke-width="1" opacity="0.2"/>
+            <line x1="50" y1="50" x2="80" y2="110" stroke="var(--color-accent)" stroke-width="1" opacity="0.2"/>
+            <line x1="80" y1="110" x2="110" y2="80" stroke="var(--color-accent)" stroke-width="1" opacity="0.15"/>
+            <circle cx="50" cy="50" r="4" fill="var(--color-accent)" opacity="0.5"/>
+            <circle cx="110" cy="80" r="4" fill="var(--color-accent)" opacity="0.4"/>
+            <circle cx="80" cy="110" r="3.5" fill="var(--color-accent)" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="ambition-card__content">
+          <span class="ambition-card__badge">Prochain chapitre</span>
+          <h2 class="ambition-card__title">Master MSE — Data Science</h2>
+          <p class="ambition-card__text">{cv.about.ambition}</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Langues -->
+  <!-- En dehors du code — combined personal section -->
   <section class="section section--alt">
-    <div class="container">
-      <SectionTitle title={i18n.sections.languages} />
-      <div class="languages-row animate-fade-up">
-        {cv.about.languages.map((lang) => (
-          <div class="lang-card">
-            <span class="lang-card__flag">{lang.flag}</span>
+    <div class="container about-personal">
+      <h2 class="about-personal__heading animate-fade-up">En dehors du code</h2>
+
+      <div class="personal-grid">
+        {cv.about.hobbies.map((hobby) => (
+          <div class="personal-card animate-fade-up">
+            <span class="personal-card__icon">{hobby.icon}</span>
             <div>
-              <h3 class="lang-card__name">{lang.name}</h3>
-              <p class="lang-card__level">{lang.level}</p>
+              <h3 class="personal-card__title">{hobby.title}</h3>
+              <p class="personal-card__desc">{hobby.description}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section class="section">
-    <div class="container contact-section animate-fade-up">
-      <h2 class="contact-section__title">Envie d'échanger ?</h2>
-      <p class="contact-section__text">
-        Que ce soit pour un projet, une opportunité ou simplement discuter tech autour d'un café — n'hésitez pas.
-      </p>
-      <div class="contact-section__links">
-        <a href={`mailto:${cv.personal.email}`} class="contact-btn contact-btn--primary">
-          ✉️ {cv.personal.email}
-        </a>
-        <a href={cv.personal.social.linkedin} target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--secondary">
-          LinkedIn
-        </a>
-        <a href={cv.personal.social.github} target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--secondary">
-          GitHub
-        </a>
+      <div class="languages-strip animate-fade-up">
+        <span class="languages-strip__label">Langues :</span>
+        {cv.about.languages.map((lang) => (
+          <span class="languages-strip__pill">
+            <span class="languages-strip__flag">{lang.flag}</span>
+            {lang.name}
+            <span class="languages-strip__level">{lang.level}</span>
+          </span>
+        ))}
       </div>
     </div>
   </section>
+
+  <ContactSection />
 </BaseLayout>
 
 <style>
-  /* Intro */
-  .about-intro {
+  /* ===== Hero ===== */
+  .about-hero {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .about-hero__inner {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: var(--space-xl);
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-2xl);
     align-items: center;
   }
 
-  .about-intro__placeholder {
-    width: 280px;
-    height: 340px;
+  .about-hero__placeholder {
+    width: 240px;
+    height: 300px;
     background-color: var(--color-bg-card);
     border: 2px dashed var(--color-border);
     border-radius: var(--radius-lg);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-sm);
-    color: var(--color-text-secondary);
-    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
-  .about-intro__placeholder span {
-    font-size: 2rem;
-  }
-
-  .about-intro__title {
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
+  .about-hero__title {
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    letter-spacing: -0.03em;
+    word-spacing: 0.12em;
     margin-bottom: var(--space-lg);
   }
 
-  .about-intro__lead {
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-
-  /* Story */
-  .about-story {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-xl);
-    max-width: 52rem;
-  }
-
-  .about-story__heading {
-    font-size: 1.25rem;
+  .about-hero__dot {
     color: var(--color-accent);
-    margin-bottom: var(--space-md);
   }
 
-  .about-story__block p {
-    line-height: 1.8;
-  }
-
-  /* Hobbies */
-  .hobbies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-lg);
-  }
-
-  .hobby-card {
-    background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    transition: all var(--transition);
-  }
-
-  .hobby-card:hover {
-    border-color: rgba(99, 102, 241, 0.3);
-    transform: translateY(-2px);
-  }
-
-  .hobby-card__icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--space-md);
-  }
-
-  .hobby-card__title {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
-  }
-
-  .hobby-card__desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  /* Languages */
-  .languages-row {
+  .about-hero__meta {
     display: flex;
-    gap: var(--space-lg);
     flex-wrap: wrap;
-  }
-
-  .lang-card {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-md) var(--space-lg);
-    min-width: 200px;
-  }
-
-  .lang-card__flag {
-    font-size: 1.75rem;
-  }
-
-  .lang-card__name {
-    font-size: 1rem;
-    margin-bottom: 2px;
-  }
-
-  .lang-card__level {
-    font-size: 0.8rem;
-    font-family: var(--font-mono);
-  }
-
-  /* Contact */
-  .contact-section {
-    text-align: center;
-    max-width: 36rem;
-    margin-inline: auto;
-  }
-
-  .contact-section__title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: var(--space-md);
-  }
-
-  .contact-section__text {
-    font-size: 1.05rem;
+    gap: var(--space-md) var(--space-lg);
     margin-bottom: var(--space-xl);
   }
 
-  .contact-section__links {
+  .about-hero__tag {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
     display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
   }
 
-  .contact-btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all var(--transition);
+  .about-hero__tag-icon {
+    color: var(--color-accent);
+    font-size: 0.5rem;
   }
 
-  .contact-btn--primary {
-    background-color: var(--color-accent);
-    color: #fff;
+  .about-hero__lead {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    max-width: 44rem;
   }
 
-  .contact-btn--primary:hover {
-    background-color: var(--color-accent-hover);
-    color: #fff;
+  /* ===== Journey Timeline ===== */
+  .about-journey {
+    max-width: 48rem;
   }
 
-  .contact-btn--secondary {
-    border: 1px solid var(--color-border);
+  .about-journey__heading {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xl);
     color: var(--color-text-primary);
   }
 
-  .contact-btn--secondary:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+  .journey-timeline {
+    display: flex;
+    flex-direction: column;
   }
 
+  .journey-step {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .journey-step__marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 0.35rem;
+  }
+
+  .journey-step__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    background-color: transparent;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .journey-step__dot--active {
+    background-color: var(--color-accent);
+    box-shadow: 0 0 12px var(--color-accent-glow);
+  }
+
+  .journey-step__line {
+    width: 2px;
+    flex: 1;
+    margin-block: var(--space-sm);
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+  }
+
+  .journey-step__content {
+    padding-bottom: var(--space-xl);
+  }
+
+  .journey-step:last-child .journey-step__content {
+    padding-bottom: 0;
+  }
+
+  .journey-step__label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .journey-step__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .journey-step__content p {
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .journey-step__aside {
+    margin-top: var(--space-md);
+    padding-left: var(--space-md);
+    border-left: 2px solid rgba(74, 108, 247, 0.25);
+    font-style: italic;
+    font-size: 0.9rem !important;
+    color: var(--color-text-secondary);
+  }
+
+  /* ===== Ambition Card ===== */
+  .ambition-card {
+    position: relative;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    max-width: 52rem;
+    overflow: hidden;
+  }
+
+  .ambition-card__decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    opacity: 0.6;
+    mask-image: radial-gradient(ellipse at 100% 0%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 20%, transparent 70%);
+  }
+
+  .ambition-card__svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ambition-card__content {
+    position: relative;
+  }
+
+  .ambition-card__badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background-color: rgba(74, 108, 247, 0.1);
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: var(--space-md);
+  }
+
+  .ambition-card__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .ambition-card__text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 40rem;
+  }
+
+  /* ===== Personal Section ===== */
+  .about-personal {
+    max-width: 52rem;
+  }
+
+  .about-personal__heading {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-primary);
+  }
+
+  .personal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .personal-card {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    padding: var(--space-lg);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition);
+  }
+
+  .personal-card:hover {
+    border-color: rgba(74, 108, 247, 0.25);
+  }
+
+  .personal-card__icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.15rem;
+  }
+
+  .personal-card__title {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .personal-card__desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* Languages strip */
+  .languages-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm) var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .languages-strip__label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-right: var(--space-xs);
+  }
+
+  .languages-strip__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+  }
+
+  .languages-strip__flag {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .languages-strip__level {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* ===== Mobile ===== */
   @media (max-width: 768px) {
-    .about-intro {
+    .about-hero__inner {
       grid-template-columns: 1fr;
       justify-items: center;
       text-align: center;
     }
 
-    .about-intro__placeholder {
-      width: 200px;
-      height: 240px;
+    .about-hero__placeholder {
+      width: 180px;
+      height: 220px;
+      font-size: 2.5rem;
+    }
+
+    .about-hero__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .about-hero__meta {
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    .journey-step {
+      gap: var(--space-md);
+    }
+
+    .ambition-card {
+      padding: var(--space-lg);
+    }
+
+    .ambition-card__decoration {
+      display: none;
+    }
+
+    .personal-card {
+      padding: var(--space-md);
+      gap: var(--space-md);
     }
   }
 </style>

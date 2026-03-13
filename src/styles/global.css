@@ -5,11 +5,15 @@
   --color-bg-card: #1a1a2e;
   --color-text-primary: #e4e4e7;
   --color-text-secondary: #a1a1aa;
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
+  --color-accent: #4a6cf7;
+  --color-accent-hover: #6b8aff;
+  --color-accent-soft: rgba(74, 108, 247, 0.08);
+  --color-accent-glow: rgba(74, 108, 247, 0.25);
+  --color-accent-on-card: #7b9aff;
   --color-border: #27272a;
+  --color-success: #34d399;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   --max-width: 1200px;
@@ -51,6 +55,7 @@ body {
   line-height: 1.7;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
+  background-image: radial-gradient(ellipse at 50% 0%, #12121a 0%, #0a0a0f 70%);
   min-height: 100vh;
 }
 
@@ -99,6 +104,7 @@ h4 {
 
 h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.02em;
 }
 
 h2 {

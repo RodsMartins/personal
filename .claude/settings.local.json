@@ -18,7 +18,24 @@
       "Bash(which chromium:*)",
       "Bash(dpkg --configure -a 2>&1; apt-get install -y -f 2>&1 | tail -5)",
       "Bash(git reset:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(chromium --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-homepage-full.png --window-size=1440,900 \"http://localhost:4321/personal/\" 2>/dev/null && echo \"Screenshot taken\")",
+      "Bash(which chromium-browser:*)",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-homepage.png --window-size=1440,2000 \"http://localhost:4321/personal/\" 2>/dev/null && echo \"Screenshot taken\")",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-about.png --window-size=1440,2000 \"http://localhost:4321/personal/a-propos/\" 2>/dev/null && echo \"About page done\")",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-formations.png --window-size=1440,2000 \"http://localhost:4321/personal/formations/\" 2>/dev/null && echo \"Formations page done\")",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-projets.png --window-size=1440,2000 \"http://localhost:4321/personal/projets/\" 2>/dev/null && echo \"Projects page done\")",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-mobile.png --window-size=390,844 \"http://localhost:4321/personal/\" 2>/dev/null && echo \"Mobile screenshot done\")",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-homepage-tall.png --window-size=1440,6000 \"http://localhost:4321/personal/\" 2>/dev/null && echo \"Done\")",
+      "Bash(google-chrome --headless --no-sandbox --disable-gpu --screenshot=/tmp/cv-about-tall.png --window-size=1440,3000 \"http://localhost:4321/personal/a-propos/\" 2>/dev/null && echo \"Done\")",
+      "Bash(sleep 3 && npx playwright screenshot --viewport-size=\"1440,900\" --full-page \"http://localhost:4321/personal/\" /tmp/homepage-full.png 2>&1)",
+      "Bash(google-chrome --headless --disable-gpu --screenshot=/tmp/homepage-scroll.png --window-size=1440,4000 \"http://localhost:4321/personal/\" 2>&1 | tail -2)",
+      "Bash(sleep 2 && google-chrome --headless --disable-gpu --screenshot=/tmp/homepage-reverted.png --window-size=1440,900 \"http://localhost:4321/personal/\" 2>&1 | tail -2)",
+      "Bash(google-chrome --headless --disable-gpu --screenshot=/tmp/homepage-full-reverted.png --window-size=1440,6000 \"http://localhost:4321/personal/\" 2>&1 | tail -2)",
+      "Bash(google-chrome --headless --disable-gpu --screenshot=/tmp/homepage-scrolled.png --window-size=1440,900 \"http://localhost:4321/personal/#experience\" 2>&1 | tail -2)",
+      "Bash(google-chrome --headless --disable-gpu --screenshot=/tmp/homepage-noanim.png --window-size=1440,5000 --virtual-time-budget=5000 \"http://localhost:4321/personal/\" 2>&1 | tail -2)",
+      "Bash(google-chrome --headless --disable-gpu --screenshot=/tmp/full-visible.png --window-size=1440,5000 \"file:///tmp/debug-page.html\" 2>&1 | tail -2)",
+      "Bash(sleep 1\ngoogle-chrome --headless --disable-gpu --screenshot=/tmp/sec-experience.png --window-size=1440,900 \"http://localhost:4321/personal/#experience\" 2>/dev/null\ngoogle-chrome --headless --disable-gpu --screenshot=/tmp/sec-skills.png --window-size=1440,900 \"http://localhost:4321/personal/#skills\" 2>/dev/null\ngoogle-chrome --headless --disable-gpu --screenshot=/tmp/sec-formations.png --window-size=1440,900 \"http://localhost:4321/personal/#formations\" 2>/dev/null\ngoogle-chrome --headless --disable-gpu --screenshot=/tmp/sec-projects.png --window-size=1440,900 \"http://localhost:4321/personal/#projects\" 2>/dev/null\ngoogle-chrome --headless --disable-gpu --screenshot=/tmp/sec-contact.png --window-size=1440,900 \"http://localhost:4321/personal/#contact\" 2>/dev/null\necho \"Done\")"
     ]
   }
 }
